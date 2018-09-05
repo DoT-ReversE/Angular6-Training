@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { FoodListComponent } from './page/food-list/food-list.component';
 import { SleepComponent } from './page/sleep/sleep.component';
 import { WeightComponent } from './page/weight/weight.component';
 import { ProfileComponent } from './page/profile/profile.component';
+import { DashboardItemComponent } from './component/dashboard-item/dashboard-item.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +34,14 @@ import { ProfileComponent } from './page/profile/profile.component';
     FoodListComponent,
     SleepComponent,
     WeightComponent,
-    ProfileComponent
+    ProfileComponent,
+    DashboardItemComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

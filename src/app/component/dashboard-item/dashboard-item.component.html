@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">{{title}}</div>
+  <div class="panel-body">
+    <p>{{date}}</p>
+  </div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li (click)="onItemClick('c')" class="list-group-item">{{caloriesText}}<span class="badge">14</span></li>
+    <li (click)="onItemClick('s')" class="list-group-item">{{sleepText}}<span class="badge">14</span></li>
+    <li (click)="onItemClick('w')" class="list-group-item">{{weightText}}<span class="badge">14</span></li>
+    <li (click)="onItemClick('b')" class="list-group-item">{{bmiText}}<span class="badge">14</span></li>
+  </ul>
+</div>
