@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-login',
@@ -11,17 +13,24 @@ export class LoginComponent implements OnInit {
   userEmail: String = '';
   userPassword: String = '';
 
-  constructor() { }
+  constructor(
+    private _angularFirebaseAuth: AngularFireAuth,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   onFormSubmit(_form: NgForm) {
     if (_form.valid) {
-      console.log(_form.value.userEmail);
-      console.log(_form.value.userPassword);
+      this._angularFirebaseAuth.auth.signInWithEmailAndPassword(_form.value.userEmail, _form.value.userPassword)
+      .then(() => {
+        this._router.navigate(['project']);
+      })
+      .catch(error => alert(error));
     } else {
-      console.log('Some required element');
+      alert('Some required element');
     }
   }
+
 }

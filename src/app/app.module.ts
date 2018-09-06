@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -22,6 +23,8 @@ import { TrimCreditCardPipe } from './pipe/trim-credit-card.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectComponent } from './page/project/project.component';
 import { ProjectFormComponent } from './page/project-form/project-form.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,9 @@ import { ProjectFormComponent } from './page/project-form/project-form.component
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
