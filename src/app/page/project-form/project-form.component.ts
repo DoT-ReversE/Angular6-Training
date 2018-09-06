@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProjectFormComponent implements OnInit {
 
   _obj: Project = <Project>{};
-  _action;
+  _isNew = false;
 
   constructor(
     private _projService: ProjectService,
@@ -20,14 +20,17 @@ export class ProjectFormComponent implements OnInit {
   ) {
     this._activatedRoute.params.subscribe(
       params => {
-        this._action = params.pkCode;
-        this._projService.getProjectByPkCode(params.pkCode).subscribe(
-          result => {
-            if (result) {
-              this._obj = result;
+        if (params.pkCode === 'NEW') {
+          this._isNew = true;
+        } else {
+          this._projService.getProjectByPkCode(params.pkCode).subscribe(
+            result => {
+              if (result) {
+                this._obj = result;
+              }
             }
-          }
-        );
+          );
+        }
       }
     );
   }
@@ -36,7 +39,7 @@ export class ProjectFormComponent implements OnInit {
   }
 
   onSubmitClick() {
-    if (this._action === 'NEW') {
+    if (this._isNew) {
       this._projService.addProject(this._obj).subscribe(
         result => {
           if (result.status) {
@@ -44,7 +47,6 @@ export class ProjectFormComponent implements OnInit {
           } else {
             alert(result.message.code + ':' + result.message.sqlMessage);
           }
-          console.log(result);
         }
         );
     } else {
@@ -55,7 +57,6 @@ export class ProjectFormComponent implements OnInit {
           } else {
             alert(result.message.code + ':' + result.message.sqlMessage);
           }
-          console.log(result);
         }
       );
     }
