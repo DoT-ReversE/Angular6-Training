@@ -42,4 +42,15 @@ export class ProjectService {
   deleteProject(key): Observable<any> {
     return this._http.delete(`${this._apiUrl}/${key}`);
   }
+
+  getProjectByPkCode(pkCode): Observable<any> {
+    return this._http.get<Project>(`${this._apiUrl}/findByID/${pkCode}`,
+      { headers:
+        {
+          'Authorization': 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyQ29kZSI6Ik5vb3RpM3ciLCJ1c2VyTmFtZSI6IkNob25uaXNhIiwidXNlckxhc3ROYW1lIjoiVGhpZW1idW5kaXQiLCJ1c2VyRW1haWwiOiJ0aWV3d2FfaGFoYUBob3RtYWlsLmNvbSJ9.Gnb5Wx3jDi-6IVtGpfG64atQMaX6brBjRozitU0nlcQ',
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+  }
 }

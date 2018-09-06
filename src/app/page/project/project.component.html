@@ -1,12 +1,27 @@
+<H3 class="text-center"><ins>Project List</ins></H3>
 <table class="table table-hover">
   <tr>
-    <th colspan="5">Project Table</th>
+    <th class="active">
+      <button class="btn btn-primary btn-xs" (click)="onAddClick()">Add</button>
+    </th>
+    <th class="active">PK Code</th>
+    <th class="active">Project Code</th>
+    <th class="active">Project Name</th>
+    <th class="active">Project Image</th>
+    <th class="active">Status</th>
+    <th class="active"></th>
   </tr>
   <tr *ngFor="let data of _data">
+    <td>
+      <button class="btn btn-primary btn-xs" (click)="onEditClick(data.pkCode)">Edit</button>
+    </td>
     <td>{{data.pkCode}}</td>
     <td>{{data.projCode}}</td>
     <td>{{data.projName}}</td>
     <td>{{data.projImage}}</td>
     <td>{{data.status}}</td>
+    <td>
+      <button class="btn btn-danger btn-xs" (click)="onDelClick(data.pkCode)">X</button>
+    </td>
   </tr>
 </table>

@@ -21,6 +21,7 @@ import { DashboardItemComponent } from './component/dashboard-item/dashboard-ite
 import { TrimCreditCardPipe } from './pipe/trim-credit-card.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { ProjectComponent } from './page/project/project.component';
+import { ProjectFormComponent } from './page/project-form/project-form.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ProjectComponent } from './page/project/project.component';
     ProfileComponent,
     DashboardItemComponent,
     TrimCreditCardPipe,
-    ProjectComponent
+    ProjectComponent,
+    ProjectFormComponent
   ],
   imports: [
     BrowserModule,

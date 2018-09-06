@@ -14,6 +14,7 @@ import { PublicZoneComponent } from './page/public-zone/public-zone.component';
 import { PrivateZoneComponent } from './page/private-zone/private-zone.component';
 import { SleepComponent } from './page/sleep/sleep.component';
 import { WeightComponent } from './page/weight/weight.component';
+import { ProjectFormComponent } from './page/project-form/project-form.component';
 
 const routes: Routes = [
 {
@@ -29,6 +30,8 @@ const routes: Routes = [
     path: 'phone-login', component: PhoneLoginComponent
   }, {
     path: 'project', component: ProjectComponent
+  }, {
+    path: 'project-form/:pkCode', component: ProjectFormComponent
   }]
 }, {
   path: 'admin',
