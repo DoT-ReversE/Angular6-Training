@@ -1,4 +1,13 @@
-<p>
-  private-zone works!
-</p>
-<router-outlet></router-outlet>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">
+          My Fitness
+        </a>
+      </div>
+      <button type="button" class="btn btn-link navbar-btn navbar-right" (click)="onSignOutClick()">Sign out</button>
+      <button type="button" class="btn btn-link navbar-btn navbar-right">Profile</button>
+    </div>
+  </nav>
+
+  <router-outlet></router-outlet>

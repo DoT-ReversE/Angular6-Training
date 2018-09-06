@@ -12,8 +12,8 @@ export class DashboardComponent implements OnInit {
   lastWeekTitle: String = 'Last Week';
 
   todayDate: Date = new Date();
-  yesterdayDate: String = '4/9/2018';
-  lastWeekDate: String = '25/9/2018';
+  yesterdayDate: String = '9/4/2018';
+  lastWeekDate: String = '9/25/2018';
 
   constructor() { }
 

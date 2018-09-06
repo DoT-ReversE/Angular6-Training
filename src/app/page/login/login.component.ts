@@ -19,18 +19,31 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this._angularFirebaseAuth.authState.subscribe( response => {
+      if (response) {
+        this._router.navigate(['admin']);
+      }
+    })
   }
 
   onFormSubmit(_form: NgForm) {
     if (_form.valid) {
       this._angularFirebaseAuth.auth.signInWithEmailAndPassword(_form.value.userEmail, _form.value.userPassword)
-      .then(() => {
-        this._router.navigate(['project']);
+      .then((response) => {
+        if (response.user.emailVerified) {
+          this._router.navigate(['admin']);
+        } else {
+          alert('Your email does not verify');
+        }
       })
       .catch(error => alert(error));
     } else {
-      alert('Some required element');
+      alert('This is required element');
     }
+  }
+
+  onRegisterClick() {
+    this._router.navigate(['register']);
   }
 
 }

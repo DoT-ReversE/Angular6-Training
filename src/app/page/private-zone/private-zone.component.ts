@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrivateZoneComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _angularFirebaseAuth: AngularFireAuth,
+    private _router: Router
+  ) { }
 
   ngOnInit() {
   }
 
+  onSignOutClick() {
+    this._angularFirebaseAuth.auth.signOut()
+    .then(() => {
+      this._router.navigate(['login']);
+    })
+    .catch( error => alert(error));
+  }
 }
