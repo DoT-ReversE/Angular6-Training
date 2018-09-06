@@ -1,3 +1,4 @@
+import { ProjectComponent } from './page/project/project.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './page/profile/profile.component';
@@ -26,6 +27,8 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent
   }, {
     path: 'phone-login', component: PhoneLoginComponent
+  }, {
+    path: 'project', component: ProjectComponent
   }]
 }, {
   path: 'admin',

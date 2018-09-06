@@ -20,6 +20,7 @@ import { ProfileComponent } from './page/profile/profile.component';
 import { DashboardItemComponent } from './component/dashboard-item/dashboard-item.component';
 import { TrimCreditCardPipe } from './pipe/trim-credit-card.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { ProjectComponent } from './page/project/project.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     WeightComponent,
     ProfileComponent,
     DashboardItemComponent,
-    TrimCreditCardPipe
+    TrimCreditCardPipe,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,

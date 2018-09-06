@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { Project } from '../model/project';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class ProjectService {
 
   constructor(private _http: HttpClient) { }
 
-  getProject(): Observable<any> {
-    return this._http.get(this._apiUrl);
+  getProject(): Observable<Project[]> {
+    return this._http.get<Project[]>(this._apiUrl);
   }
 
   addProject(body): Observable<any> {
