@@ -1,13 +1,15 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand">
-          My Fitness
-        </a>
-      </div>
-      <button type="button" class="btn btn-link navbar-btn navbar-right" (click)="onSignOutClick()">Sign out</button>
-      <button type="button" class="btn btn-link navbar-btn navbar-right">Profile</button>
+<nav class="navbar navbar-default" style="background-color: #cb96c2; color: white">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color: white">
+        BNK48 Fitness
+      </a>
     </div>
-  </nav>
+    <button type="button" style="color: white" class="btn btn-link navbar-btn navbar-right" (click)="onSignOutClick()">Sign out</button>
+    <button type="button" style="color: white" class="btn btn-link navbar-btn navbar-right" (click)="onProfileClick()">Profile</button>
+    <button type="button" style="color: white" class="btn btn-link navbar-btn navbar-right" (click)="onDashboardClick()">Dashboard</button>
+    <button type="button" style="color: white" class="btn btn-link navbar-btn navbar-right" (click)="onCaloriesClick()">Calories</button>
+  </div>
+</nav>
 
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>

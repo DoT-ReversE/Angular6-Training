@@ -1,3 +1,4 @@
+import { AuthGuard } from './../../share/auth.guard';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -15,15 +16,18 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _angularFirebaseAuth: AngularFireAuth,
-    private _router: Router
-  ) { }
-
-  ngOnInit() {
+    private _router: Router,
+    private _guard: AuthGuard
+  ) {
     this._angularFirebaseAuth.authState.subscribe( response => {
       if (response) {
+        this._guard._hasLoginState = true;
         this._router.navigate(['admin']);
       }
-    })
+    });
+  }
+
+  ngOnInit() {
   }
 
   onFormSubmit(_form: NgForm) {

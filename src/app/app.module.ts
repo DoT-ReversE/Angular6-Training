@@ -25,6 +25,7 @@ import { ProjectComponent } from './page/project/project.component';
 import { ProjectFormComponent } from './page/project-form/project-form.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { CarouselModule, BsDatepickerModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    CarouselModule.forRoot(),
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

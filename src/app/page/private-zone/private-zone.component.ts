@@ -24,4 +24,16 @@ export class PrivateZoneComponent implements OnInit {
     })
     .catch( error => alert(error));
   }
+
+  onProfileClick() {
+    this._router.navigate(['admin/profile']);
+  }
+
+  onDashboardClick() {
+    this._router.navigate(['admin/']);
+  }
+
+  onCaloriesClick() {
+    this._router.navigate(['admin/calories']);
+  }
 }

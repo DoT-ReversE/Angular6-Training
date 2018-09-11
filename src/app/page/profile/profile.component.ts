@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  name: String = '';
+  dateOfBirth: Date = null;
+  height: number = null;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSubmitClick(_form: NgForm) {
+
+  }
 }

@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhoneLoginComponent implements OnInit {
 
+  phoneNumber: String = '';
+  otp: String = '';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onGetOtpSubmit(_form: NgForm) {
+
+  }
+
+  onConfirmSubmit(_form: NgForm) {
+
   }
 
 }

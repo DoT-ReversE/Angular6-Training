@@ -1,16 +1,33 @@
-<input type="text" name="todayTitle" id="" [(ngModel)]="todayTitle">
-<app-dashboard-item 
-  (itemClick)="onTodayItemClick($event)" 
-  [title]="todayTitle" 
-  [date]="todayDate">
-</app-dashboard-item>
-<app-dashboard-item 
-  (itemClick)="onTodayItemClick($event)" 
-  [title]="yesterdayTitle" 
-  [date]="yesterdayDate">
-</app-dashboard-item>
-<app-dashboard-item 
-  (itemClick)="onTodayItemClick($event)" 
-  [title]="lastWeekTitle" 
-  [date]="lastWeekDate">
-</app-dashboard-item>
+<!--
+  <input type="text" name="todayTitle" id="" [(ngModel)]="todayTitle">
+-->
+<H3 class="text-center"><ins>Dashboard</ins></H3>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="row">
+        <div class="col-md-4">
+          <app-dashboard-item
+            (itemClick)="onTodayItemClick($event)"
+            [title]="todayTitle"
+            [date]="todayDate">
+          </app-dashboard-item>
+        </div>
+        <div class="col-md-4">
+          <app-dashboard-item
+            (itemClick)="onTodayItemClick($event)"
+            [title]="yesterdayTitle"
+            [date]="yesterdayDate">
+          </app-dashboard-item>
+        </div>
+        <div class="col-md-4">
+          <app-dashboard-item
+            (itemClick)="onTodayItemClick($event)"
+            [title]="lastWeekTitle"
+            [date]="lastWeekDate">
+          </app-dashboard-item>
+        </div>
+      </div>
+  </div>
+</div>
+
+
