@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +18,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private _angularFirebaseAuth: AngularFireAuth,
     private _router: Router,
-    private _guard: AuthGuard
   ) {
     this._angularFirebaseAuth.authState.subscribe( response => {
       if (response) {
-        this._guard._hasLoginState = true;
         this._router.navigate(['admin']);
       }
     });
@@ -50,4 +49,11 @@ export class LoginComponent implements OnInit {
     this._router.navigate(['register']);
   }
 
+  onGoogleClick() {
+    this._angularFirebaseAuth.auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+  }
+
+  onFacebookClick() {
+    this._angularFirebaseAuth.auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider());
+  }
 }

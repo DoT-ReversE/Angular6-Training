@@ -1,3 +1,44 @@
-<p>
-  food-list works!
-</p>
+<div class="container col-xs-12 col-md-6 col-md-offset-3">
+  <div class="row">
+    <div class="col-xs-10">
+      <input id="searchText" type="text" class="form-control" placeholder="search"  name="searchText" [(ngModel)]="_search">
+    </div>
+    <div class="col-xs-2">
+      <button class="btn btn-primary" (click)="onSearchClick()">
+        <i class='glyphicon glyphicon-search'></i>
+      </button>
+      <button class="btn btn-primary" (click)="onAddClick()">
+        <i class='glyphicon glyphicon-plus'></i>
+      </button>
+    </div>
+  </div>
+  <div class="row" style="padding-top:20px">
+    <div class="col-xs-12">
+      <table class="table table-bordered table-hover table-center">
+        <tbody>
+          <tr *ngFor="let food of _foods | async">
+            <td>
+              <img [src]="food.url" height="100px">
+            </td>
+            <td>
+              {{food.name}}
+            </td>
+            <td>
+              {{food.kcal}} kcal.
+            </td>
+            <td>
+              <button class="btn btn-primary">
+                <i class='glyphicon glyphicon-pencil'></i>
+              </button>
+            </td>
+            <td>
+              <button class="btn btn-primary" (click)="onRemoveClick(food.name)">
+                <i class='glyphicon glyphicon-remove'></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

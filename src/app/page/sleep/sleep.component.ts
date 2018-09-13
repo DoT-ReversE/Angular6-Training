@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SleepComponent implements OnInit {
 
+  _date: Date = new Date();
   hour;
 
   constructor() { }

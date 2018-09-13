@@ -2,6 +2,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { take, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,23 +15,19 @@ export class AuthGuard implements CanActivate {
     private _angularFirebaseAuth: AngularFireAuth,
     private _router: Router
   ) {
-      _angularFirebaseAuth.authState.subscribe(
-        result => {
-          if (result) {
-            this._hasLoginState = true;
-          } else {
-            this._hasLoginState = false;
-          }
-        }
-    );
   }
+
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-      if (this._hasLoginState) {
-        return this._hasLoginState;
-      } else {
-        this._router.navigate(['login']);
-      }
+      return this._angularFirebaseAuth.authState.pipe(
+        take(1),
+        map(resp => !!resp),
+        tap(resp => {
+          if (!resp) {
+            this._router.navigate(['login']);
+          }
+        })
+      );
   }
 }

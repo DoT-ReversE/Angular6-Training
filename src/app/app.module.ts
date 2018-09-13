@@ -26,6 +26,10 @@ import { ProjectFormComponent } from './page/project-form/project-form.component
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { CarouselModule, BsDatepickerModule } from 'ngx-bootstrap';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { ProgressbarModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -56,8 +60,12 @@ import { CarouselModule, BsDatepickerModule } from 'ngx-bootstrap';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     CarouselModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    ProgressbarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

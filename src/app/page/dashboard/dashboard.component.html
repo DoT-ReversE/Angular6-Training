@@ -14,14 +14,14 @@
         </div>
         <div class="col-md-4">
           <app-dashboard-item
-            (itemClick)="onTodayItemClick($event)"
+            (itemClick)="onYesterdayItemClick($event)"
             [title]="yesterdayTitle"
             [date]="yesterdayDate">
           </app-dashboard-item>
         </div>
         <div class="col-md-4">
           <app-dashboard-item
-            (itemClick)="onTodayItemClick($event)"
+            (itemClick)="onLastWeekItemClick($event)"
             [title]="lastWeekTitle"
             [date]="lastWeekDate">
           </app-dashboard-item>
@@ -29,5 +29,3 @@
       </div>
   </div>
 </div>
-
-
