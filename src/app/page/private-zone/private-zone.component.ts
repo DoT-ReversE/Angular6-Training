@@ -36,4 +36,21 @@ export class PrivateZoneComponent implements OnInit {
   onCaloriesClick() {
     this._router.navigate(['admin/calories']);
   }
+
+  onSleepClick() {
+    this._router.navigate(['admin/sleep']);
+  }
+
+  onWeightClick() {
+    this._router.navigate(['admin/weight']);
+  }
+
+  onFoodClick() {
+    this._router.navigate(['admin/food']);
+  }
+
+  onFoodListClick() {
+    this._router.navigate(['admin/food-list']);
+  }
+
 }
